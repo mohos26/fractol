@@ -1,38 +1,15 @@
+# function for line generation
+def draw_line(x0, y0, x1, y1):
+	length = x1 - x0
+	sign = 1
+	aid = (y1 - y0) / length
+	if length < 0:
+		sign = -1
+	length = abs(length)
+	for i in range(length+1):
+		print(x0 + i * sign, round(y0 + i * aid))
 
 
-def aid(n):
-	pass
-"""
-01 -> 01 -> 1
-02 -> 03 -> 3
-03 -> 05 -> 3
-04 -> 07 -> 3
-05 -> 09 -> 5
-06 -> 11 -> 5
-07 -> 13 -> 5
-08 -> 15 -> 5
-09 -> 17 -> 5
-10 -> 19 -> 7
-11 -> 21 -> 7
-12 -> 23 -> 7
-13 -> 25 -> 7
-14 -> 27 -> 7
-15 -> 29 -> 7
-16 -> 31 -> 7
-17 -> 33 -> 9
-18 -> 35 -> 9
-19 -> 37 -> 9
-20 -> 39 -> 9
-21 -> 41 -> 9
-22 -> 43 -> 9
-23 -> 45 -> 9
-24 -> 47 -> 9
-25 -> 49 -> 9
 
 
-ff = lambda x: x*(x//2) + x//2
-
-f = lambda x: 2*x + 1
-rev_f = lambda x: (x+1)//2
-
-"""
+draw_line(2, 2, 13, 5)
