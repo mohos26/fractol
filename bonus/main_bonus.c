@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhoussas <mhoussas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:47:06 by mhoussas          #+#    #+#             */
-/*   Updated: 2025/01/29 15:11:39 by mhoussas         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:11:25 by mhoussas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../header.h"
 
 static void	ft_exit(char *s)
 {
@@ -25,8 +25,9 @@ static void	ft_check_input(int ac, char **av)
 	if (ac > 2 && ft_strncmp(av[1], "julia", 6))
 		ft_exit("Number of args !!!\n");
 	if (!(ac == 2 || ac == 4) || !(!ft_strncmp(av[1], "mandelbrot", 11)
-			|| !ft_strncmp(av[1], "julia", 6)))
-		ft_exit("Write [mandelbrot - julia]\n");
+			|| !ft_strncmp(av[1], "julia", 6)
+			|| !ft_strncmp(av[1], "tricorn", 5)))
+		ft_exit("Write [mandelbrot - julia - tricorn]\n");
 	if (ac == 4)
 	{
 		if (!(ft_isnumber(av[2], 0) && ft_isnumber(av[3], 0)))
@@ -70,6 +71,8 @@ int	main(int ac, char **av)
 		else
 			julia(&img, (t_complex){-1, 0}, 0);
 	}
+	else if (!ft_strncmp(av[1], "tricorn", 6))
+		tricorn(&img, 0);
 	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
 	mlx_loop(vars.mlx);
 	exit(0);
